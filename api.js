@@ -1,7 +1,7 @@
 const GET = url => new Promise((resolve) => {
     var xhr = new XMLHttpRequest();
     xhr.onload = () => resolve(xhr.responseText);
-    xhr.open(url);
+    xhr.open('GET', url);
     xhr.send();
 });
 
