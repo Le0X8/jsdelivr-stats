@@ -62,7 +62,7 @@ const api = {
     packages: async (by, type, period, limit, page) => JSON.parse(await GET(`${endpoint}/stats/packages?by=${by == 'bandwidth' ? by : 'hits'}${type ? (type == 'gh' ? '&type=' + type : '&type=npm') : ''}&period=${isDateOrPeriod(period) ? period : 'month'}&limit=${limit ? Number(limit % 100 + 1) : 100}&page=${page ? Number(page % 100 + 1) : 1}`)),
 
     // https://www.jsdelivr.com/docs/data.jsdelivr.com#get-/v1/stats/network
-    network: async (continent, country, period) => JSON.parse(await GET(`${endpoint}/stats/network?${isContinent(continent) ? 'continent=' + continent + '&' : ''}${country ? 'country=' + country + '&' : ''}period=${isDateOrPeriod(period) ? period : 'month'},
+    network: async (continent, country, period) => JSON.parse(await GET(`${endpoint}/stats/network?${isContinent(continent) ? 'continent=' + continent + '&' : ''}${country ? 'country=' + country + '&' : ''}period=${isDateOrPeriod(period) ? period : 'month'}`)),
 
     // https://www.jsdelivr.com/docs/data.jsdelivr.com#get-/v1/stats/network/content
     networkContent: async (period) => JSON.parse(await GET(`${endpoint}/stats/network/content?period=${isDateOrPeriod(period) ? period : 'month'}`)),
