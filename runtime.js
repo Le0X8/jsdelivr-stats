@@ -20,7 +20,7 @@ google.charts.setOnLoadCallback(async () => {
 
     var options = {
         chart: {
-            title: 'jsDelivr Hits per day in ' + (new Date(Object.keys(network.hits.providers[0].dates))[0]),
+            title: 'jsDelivr Hits per day in ' + (new Date(Object.keys(network.hits.providers[0].dates)[0])).getFullYear(),
             subtitle: 'in billions'
         }
     };
@@ -30,14 +30,14 @@ google.charts.setOnLoadCallback(async () => {
         el.classList.add('info');
         el.innerText = name;
         return el;
-    })('jsDelivr has served a total of ' + network.hits.total.toLocaleString() + ' requests in ' + (new Date(Object.keys(network.hits.providers[0].dates))[0])));
+    })('jsDelivr has served a total of ' + network.hits.total.toLocaleString() + ' requests in ' + (new Date(Object.keys(network.hits.providers[0].dates)[0])).getFullYear()));
 
     main.appendChild((name => {
         var el = document.createElement('span');
         el.classList.add('title');
         el.innerText = name;
         return el;
-    })('jsDelivr Hits per day in ' + (new Date(Object.keys(network.hits.providers[0].dates))[0])));
+    })('jsDelivr Hits per day in ' + (new Date(Object.keys(network.hits.providers[0].dates)[0])).getFullYear()));
     main.appendChild((name => {
         var el = document.createElement('span');
         el.classList.add('subtitle');
