@@ -7,13 +7,12 @@ var period = 's-year'
 google.charts.setOnLoadCallback(async () => {
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Day');
-    const hits = await api.network(null, null, period);
-    console.log(hits);
-    hits.providers.forEach(provider => data.addColumn('number', provider.name));
+    const network = await api.network(null, null, period);
+    network.hits.providers.forEach(provider => data.addColumn('number', provider.name));
 
     const dataArr = [];
-    Object.keys(hits.providers[0].dates).forEach(date => dataArr.push([(new Date(date)).toLocaleDateString()]));
-    hits.providers.forEach((provider, i) => Object.keys(provider.dates).forEach((date, j) => {
+    Object.keys(network.hits.providers[0].dates).forEach(date => dataArr.push([(new Date(date)).toLocaleDateString()]));
+    network.hits.providers.forEach((provider, i) => Object.keys(provider.dates).forEach((date, j) => {
         dataArr[j][j + 1] = provider.dates[date].total;
     }));
 
