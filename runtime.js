@@ -13,7 +13,7 @@ google.charts.setOnLoadCallback(async () => {
     const dataArr = [];
     Object.keys(network.hits.providers[0].dates).forEach(date => dataArr.push([(new Date(date)).toLocaleDateString()]));
     network.hits.providers.forEach((provider, i) => Object.keys(provider.dates).forEach((date, j) => {
-        dataArr[j][j + 1] = provider.dates[date].total;
+        dataArr[j][i + 1] = provider.dates[date].total;
     }));
 
     data.addRows(dataArr);
