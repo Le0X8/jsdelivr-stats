@@ -8,6 +8,7 @@ google.charts.setOnLoadCallback(async () => {
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Day');
     const hits = await api.network(null, null, period);
+    console.log(hits);
     hits.providers.forEach(provider => data.addColumn('number', provider.name));
 
     const dataArr = [];
